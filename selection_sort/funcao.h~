@@ -1,0 +1,2 @@
+//void copiarConteudo(FILE *arquivo01, FILE *arquivo02);
+void selection_sort(int *vet);

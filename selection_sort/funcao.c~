@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAMANHO_VETOR 102
+
+void selection_sort(int *vet){
+	int i=0, j,  aux=0, min=0;	
+	 
+	FILE *arquivo;
+
+	arquivo = fopen("couting.txt","r");
+	 //arquivo = fopen("arquivo_ordenado.txt","w");
+		
+		/*if(arquivo == NULL){
+			printf("Erro ao abrir o arquivo!");
+			return ;
+		} else{
+*/
+		 	 for(i =0 ; i < TAMANHO_VETOR  ; i++){
+				fscanf(arquivo, "%d\n", &vet[i]);
+				} // end i 
+
+	 arquivo = fopen("arquivo_ordenado.txt","w");
+//*************************************
+//int i, j, min, aux;
+  
+  for (i = 0; i < (TAMANHO_VETOR - 1); i++) {
+    /* O minimo é o primeiro número não ordenado ainda */
+    min = i;
+    for (j = i+1; j < TAMANHO_VETOR; j++) {
+      /* Caso tenha algum numero menor ele faz a troca do minimo*/
+      if (vet[j] < vet[min]) {
+   min = j;
+      }
+    }
+    /* Se o minimo for diferente do primeiro numero não ordenado ele faz a troca para ordena-los*/
+    if (i != min) {
+      aux = vet[i];
+      vet[i] = vet[min];
+      vet[min] = aux;
+    }
+  
+//*************************************
+			/* for (i =0 ; i<(TAMANHO_VETOR-1); i++){
+				for (j = i+1;j<TAMANHO_VETOR; j++){
+					if(vet[i] > vet[j]){
+						min = j;						
+						}		
+					if(i!= min){
+						aux = vet[i];
+						vet[i] = vet[min];
+						vet[min] = aux;
+						}			
+					}*/
+			
+			fprintf(arquivo,"%d\n", vet[i]);
+
+		}
+	
+		fclose(arquivo);
+}
+		 
+	
+
